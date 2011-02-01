@@ -1,0 +1,88 @@
+pre{
+    border: 1px solid #BEDCE7;
+    background-color: #EAF2F5;
+}
+.test{
+    list-style: none;
+    overflow: hidden;
+}
+.test li{
+    width: 240px;
+    margin: 5px;
+}
+.true{
+    background-image:url("images/tick.png");
+    background-repeat:no-repeat;
+    background-color: #DFD;
+    padding-left:25px;
+    background-position:0 50%;
+}
+.false{
+    background-image:url("images/cross.png");
+    background-color: #FDD;
+    background-repeat:no-repeat;
+    padding-left:25px;
+
+}
+.test .true, .test .false{
+    background-position:0 50%;
+}
+.testtable .true, .testtable .false{
+    background-position:50% 50%;
+}
+
+.icon{
+background-position:0 50%;
+background-repeat:no-repeat;
+display:block;
+float:left;
+height:40px;
+line-height:40px;
+padding-left:50px;
+}
+
+ul{
+    /* margin:0; */
+    /* padding:0; */
+}
+dl{
+    overflow:hidden;    
+}
+dt, dd {
+    border:1px solid #BEDCE7;
+    background-color:#EAF2F5;
+    padding: 10px 10px 10px 10px;
+    width: 120px;
+    margin: 0;
+}
+dt{
+    float: left;
+    clear:left;
+    overflow:hidden;
+}
+dd{
+    float: left;
+}
+td,th{
+    border:1px solid #BEDCE7;
+    background-color:#EAF2F5;
+    padding: 10px 10px 10px 10px;
+
+}
+
+.browser-firefox {
+    background-repeat:no-repeat;
+    background-image:url("images/firefox.png");
+}
+.browser-ie {
+    background-repeat:no-repeat;
+    background-image:url("images/ie.png");
+}
+.browser-chrome{
+    background-repeat:no-repeat;
+    background-image:url("images/chrome.png");
+}
+.browser-opera {
+    background-repeat:no-repeat;
+    background-image:url("images/opera.png");
+}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Applet Deploy and LiveConnect Test</title>
+  <meta name="description" content="Applet Deploy and LiveConnect Test">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+  <noscript>Enable JavaScript for this page to work</noscript>
+  <div style="float:right">
+    <p>Source available <a href="//github.com/jakobadam/LiveConnectTest">here</a></p>
+    <p>Test results for major browsers <a href="//www.cabo.dk/blog-en/jakobs-blog/applets-missing-information-about-liveconnect-and-deployment">here</a></p>
+  </div>
+  <table id="browser-info">
+    <tr>
+      <th>Browser</th>
+      <td><span id="browser"></span>&nbsp;<span id="browser-version"></span></td>
+    </tr>
+    <tr>
+      <th>OS</th>
+      <td id="browser-os"></td>
+  </table>
+
+  <h3>Click buttons to test applet deployment and LiveConnect support in your browser</h3>
+
+  <p>Note: Opera is buggy with several applets with the same archive. (You can load two applets without trouble)</p>
+  <p>Note: Firefox Mac won't run any of the test for applets without the mayscript attribute.</p>
+
+  <div id="buttons"></div>
+  <div id="results"></div>
+  <div id="applets"></div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+  <script src="js/browser.js"></script>
+  <script src="js/checkJava.js"></script>
+  <script src="js/appletTest.js"></script>
+
+  <script>
+  function showWarningIfJavaNotAvailable(){
+    if(!java.isEnabled()){
+      var style = "background-color: #FDD;font-weight:bold;position:fixed;top:0px;width:100%;text-align:center;z-index:1000;left:0px;height:20px;";
+      var warning = jQuery('<div class="warning" style="' + style + '">Java is not present, please enable or download <a href="' + java.java_url + '">here</a>!</div>');
+      warning.hide();
+      jQuery('body').prepend(warning);
+      warning.slideDown();
+    }
+  }
+  
+  showWarningIfJavaNotAvailable();
+  $(document).ready(function(){
+    var button;
+    $('#browser').html(browser.browser);
+    $('#browser-version').html(browser.version);
+    $('#browser-os').html(browser.OS);
+    $.each(applet_specs, function(i,s){
+        button = $("<button>" + s.name + "</button>").click(function(){
+        test(s);
+        $(this).attr('disabled', true);
+      });
+      $('#buttons').append(button);
+    });
+  });
+</script>
+</body>
+</html>
