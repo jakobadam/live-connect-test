@@ -74,7 +74,7 @@ var applet_specs = {
     html: [
 '<object id="5" type="application/x-java-applet" width="1" height="1">',
 '  <param name="mayscript" value="true" />',
-'  <param name="codebase" value="', applet_dir, '/bin/" />',
+'  <param name="codebase" value="', applet_dir, 'bin/" />',
 '  <param name="code" value="AppletTest" />',
 '  <param name="id" value="5" />',
 '</object>'].join('\n')
