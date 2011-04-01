@@ -12,6 +12,6 @@ objects back and forth and using call in order to be cross-browser
 compatible.
 
 The test itself is available `here
-<http://jakobdams.appspot.com/live-connect-test/>`_.
+<http://jdams.org/live-connect-test/>`_.
 
 
