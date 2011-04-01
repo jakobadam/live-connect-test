@@ -17,3 +17,6 @@ build:
 
 jar: build
 	@(jar cvf applet.jar -C bin/ .)
+
+runserver:
+	@(python -m SimpleHTTPServer)

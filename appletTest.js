@@ -1,3 +1,6 @@
+applet_dir = typeof applet_dir != 'undefined' ? applet_dir : '/';
+applet_path = applet_dir + 'applet.jar';
+
 String.prototype.substitute = function(/*Object*/map){
 	return this.replace(/\$\{([^\s\:\}]+)(?:\:([^\s\:\}]+))?\}/g,
 		function(match, key, format){
@@ -34,7 +37,7 @@ var applet_specs = {
     html: [
 '<object id="1" type="application/x-java-applet" width="1" height="1" >',
 '  <param name="code" value="AppletTest" />',
-'  <param name="archive" value="applet.jar?v=' + new Date().getTime() + '" />',
+'  <param name="archive" value="', applet_path, '?v=',new Date().getTime(),'" />',
 '  <param name="id" value="1" />',
 '</object>'].join('\n')
   },
@@ -42,7 +45,7 @@ var applet_specs = {
     id: "2",
     name: "Applet tag",
     html:[
-'<applet id="2" archive="applet.jar" code="AppletTest" width="1" height="1">',
+'<applet id="2" archive="', applet_path, '?v=', new Date().getTime(),'" code="AppletTest" width="1" height="1">',
 '  <param name="id" value="2" />',
 '</applet>'].join('\n')
   },
@@ -52,7 +55,7 @@ var applet_specs = {
     html: [
 '<object id="3" type="application/x-java-applet" width="1" height="1">',
 '  <param name="code" value="AppletTest" />',
-'  <param name="archive" value="applet.jar" />',
+'  <param name="archive" value="', applet_path, '?v=', new Date().getTime(), '" />',
 '  <param name="mayscript" value="true" />',
 '  <param name="id" value="3" />',
 '</object>'].join('\n')
@@ -61,7 +64,7 @@ var applet_specs = {
     id: "4",
     name: "Applet tag with mayscript attribute",
     html: [
-'<applet id="4" archive="applet.jar" code="AppletTest" mayscript="true" width="1" height="1">',
+'<applet id="4" archive="',applet_path, '?v=', new Date().getTime(), '" code="AppletTest" mayscript="true" width="1" height="1">',
 '  <param name="id" value="4" />',
 '</applet>'].join('\n')
   },
@@ -71,7 +74,7 @@ var applet_specs = {
     html: [
 '<object id="5" type="application/x-java-applet" width="1" height="1">',
 '  <param name="mayscript" value="true" />',
-'  <param name="codebase" value="' + location.pathname.slice(0, location.pathname.lastIndexOf('/') + 1) + 'bin/" />',
+'  <param name="codebase" value="', applet_dir, '/bin/" />',
 '  <param name="code" value="AppletTest" />',
 '  <param name="id" value="5" />',
 '</object>'].join('\n')
@@ -220,7 +223,7 @@ function test_applet(/* Applet */ a){
 
 function byId(id){return document.getElementById(id);}
 
-function test(/* applet_spec */ a){
+function test(/* applet_spec */ a, /* String */ jar_path){
   var t = '<li class="${result}">${name}</li>';
   $('#applets').append(a.html);    
   
