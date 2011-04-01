@@ -14,4 +14,14 @@ compatible.
 The test itself is available `here
 <http://jdams.org/live-connect-test/>`_.
 
+Running locally
+===============
+
+To run locally you must have the following:
+
+ * Python 2.5+
+
+  $ make runserver
+
+  Point browser to localhost:8000
 
